@@ -83,12 +83,19 @@ isbn_valor = StringVar()
 e4 = Entry(window, textvariable=isbn_valor)
 e4.grid(row=1, column=3)
 
-# Lista para mostrar los datos y barra de desplazamiento
+# Lista para mostrar los datos y barra de desplazamiento vertical
 list1 = Listbox(window, height=6, width=35)
 list1.grid(row=2, column=0, rowspan=6, columnspan=2)
 
 sb1 = Scrollbar(window)
-sb1.grid(row=2, column=2, rowspan=6)
+sb1.grid(row=3, column=2, rowspan=4, sticky='ns')
+
+# Barra de desplazamiento horizontal
+sb2 = Scrollbar(window, orient=HORIZONTAL)
+sb2.grid(row=7, column=0, columnspan=2, sticky='ew')
+
+list1.configure(xscrollcommand=sb2.set)
+sb2.configure(command=list1.xview)
 
 # Vincular la lista y la barra de desplazamiento
 list1.configure(yscrollcommand=sb1.set)
