@@ -1,5 +1,8 @@
 from tkinter import *
-import backend
+from backend import Database
+
+# Crear una instancia de la clase Database
+database = Database("libros.db")
 
 # Funcion para obtener la fila seleccionada
 def fila_seleccionada(event):
@@ -22,29 +25,29 @@ def fila_seleccionada(event):
 # Ver todos los registros
 def ver_comando():
     list1.delete(0, END)
-    for row in backend.ver():
+    for row in database.ver():
         list1.insert(END, row)
 
 # Buscar un registro
 def buscar_comando():
     list1.delete(0, END)
-    for row in backend.buscar(titulo_valor.get(), autor_valor.get(), anio_valor.get(), isbn_valor.get()):
+    for row in database.buscar(titulo_valor.get(), autor_valor.get(), anio_valor.get(), isbn_valor.get()):
         list1.insert(END, row)
 
 # Crear un registro
 def agregar_comando():
-    backend.insertar(titulo_valor.get(), autor_valor.get(), anio_valor.get(), isbn_valor.get())
+    database.insertar(titulo_valor.get(), autor_valor.get(), anio_valor.get(), isbn_valor.get())
     list1.delete(0, END)
     list1.insert(END, (titulo_valor.get(), autor_valor.get(), anio_valor.get(), isbn_valor.get()))
 
 # Eliminar un registro
 def eliminar_comando():
-    backend.eliminar(seleccionada[0])
+    database.eliminar(seleccionada[0])
     ver_comando()
 
 # Actualizar un registro
 def actualizar_comando():
-    backend.actualizar(seleccionada[0], titulo_valor.get(), autor_valor.get(), anio_valor.get(), isbn_valor.get())
+    database.actualizar(seleccionada[0], titulo_valor.get(), autor_valor.get(), anio_valor.get(), isbn_valor.get())
     ver_comando()
 
 # Crear la ventana principal
