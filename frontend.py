@@ -105,22 +105,22 @@ list1.bind('<<ListboxSelect>>', fila_seleccionada)
 
 
 # Botones para las acciones
-b1 = Button(window, text="Ver todos", width=12, command=ver_comando)
+b1 = Button(window, text="Ver todos", width=15, command=ver_comando)
 b1.grid(row=2, column=3)
 
-b2 = Button(window, text="Buscar entrada", width=12, command=buscar_comando)
+b2 = Button(window, text="Buscar entrada", width=15, command=buscar_comando)
 b2.grid(row=3, column=3)
 
-b3 = Button(window, text="Agregar entrada", width=12, command=agregar_comando)
+b3 = Button(window, text="Agregar entrada", width=15, command=agregar_comando)
 b3.grid(row=4, column=3)
 
-b4 = Button(window, text="Actualizar seleccion", width=12, command=actualizar_comando)
+b4 = Button(window, text="Actualizar seleccion", width=15, command=actualizar_comando)
 b4.grid(row=5, column=3)
 
-b5 = Button(window, text="Borrar seleccion", width=12, command=eliminar_comando)
+b5 = Button(window, text="Borrar seleccion", width=15, command=eliminar_comando)
 b5.grid(row=6, column=3)
 
-b6 = Button(window, text="Cerrar", width=12, command=window.destroy)
+b6 = Button(window, text="Cerrar", width=15, command=window.destroy)
 b6.grid(row=7, column=3)
 
 # Mostrar la ventana
