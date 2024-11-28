@@ -1,2 +1,7 @@
 libros.db
 __pycache__/
+
+# Ignorar carpetas de PyInstaller
+/build/
+/dist/
+*.spec
