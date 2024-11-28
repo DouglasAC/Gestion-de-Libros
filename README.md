@@ -75,6 +75,30 @@ gestion-de-libros/
 | Borrar selección     | Elimina un libro seleccionado de la base de datos. |
 | Cerrar               | Cierra la aplicación.                              |
 
+### Backend
+El backend está implementado en el archivo `backend.py` y utiliza SQLite como base de datos. Ahora, el backend se organiza en una clase llamada `Database`. Para utilizarlo, debes importar la clase y crear una instancia con el nombre del archivo de la base de datos. Ejemplo:
+
+```python
+from backend import Database
+
+# Crear instancia de la base de datos
+db = Database("libros.db")
+
+# Métodos disponibles
+db.insertar("Titulo", "Autor", 2024, 123456)
+libros = db.ver()
+print(libros)
+```
+
+#### Métodos de la clase `Database`
+- `inicializar()`: Crea la tabla `libros` si no existe.
+- `insertar(titulo, autor, anio, isbn)`: Inserta un nuevo libro en la base de datos.
+- `ver()`: Retorna todos los registros de la tabla.
+- `buscar(titulo="", autor="", anio="", isbn="")`: Busca registros en la base de datos.
+- `eliminar(id)`: Elimina un registro por su `id`.
+- `actualizar(id, titulo, autor, anio, isbn)`: Actualiza un registro existente.
+
+
 ### Captura de pantalla
 
 ![Libros](imgs/libros.png)
