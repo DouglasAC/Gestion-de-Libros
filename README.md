@@ -15,7 +15,10 @@ Este proyecto fue desarrollado como parte del curso **"The Python Mega Course: B
 - **Agregar un libro:** Agrega nuevos libros a la base de datos.
 - **Actualizar un libro:** Actualiza la información de un libro seleccionado.
 - **Eliminar un libro:** Borra un libro de la base de datos.
+  - incluye confirmación antes de borrar.
 - **Cerrar la aplicación:** Cierra la interfaz gráfica.
+- **Manejo de errores:**
+  - Notificación si se intenta eliminar o actualizar sin seleccionar un registro.
 
 ## Requisitos
 
@@ -57,8 +60,8 @@ python frontend.py
 ```bash
 gestion-de-libros/
 │
-├── frontend.py      # Archivo principal (frontend)
-├── backend.py       # Lógica del backend (conexión a la base de datos)
+├── frontend.py      # Frontend y lógica de la interfaz gráfica encapsulada en una clase
+├── backend.py       # Backend (clase Database para conexión con SQLite)
 ├── README.md        # Documentación del proyecto
 ├── libros.db        # Base de datos SQLite (se crea automáticamente)
 └── .gitignore       # Ignora archivos innecesarios (build/, dist/, etc.)
