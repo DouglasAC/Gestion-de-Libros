@@ -128,9 +128,11 @@ class BibliotecaApp:
 
     # Actualizar un registro
     def actualizar_comando(self):
-        self.database.actualizar(self.seleccionada[0], self.titulo_valor.get(), self.autor_valor.get(), self.anio_valor.get(), self.isbn_valor.get())
-        self.ver_comando()
-
+        try:
+            self.database.actualizar(self.seleccionada[0], self.titulo_valor.get(), self.autor_valor.get(), self.anio_valor.get(), self.isbn_valor.get())
+            self.ver_comando()
+        except AttributeError:
+            messagebox.showerror("Error", "Selecciona un registro primero")
 
 
 
