@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import messagebox 
 from backend import Database
 
 class BibliotecaApp:
@@ -118,8 +119,12 @@ class BibliotecaApp:
 
     # Eliminar un registro
     def eliminar_comando(self):
-        self.database.eliminar(self.seleccionada[0])
-        self.ver_comando()
+        try:
+            if messagebox.askyesno("Confirmar", "¿Estás seguro de eliminar este registro?"):
+                self.database.eliminar(self.seleccionada[0])
+                self.ver_comando()
+        except AttributeError:
+            messagebox.showerror("Error", "Selecciona un registro primero")
 
     # Actualizar un registro
     def actualizar_comando(self):
